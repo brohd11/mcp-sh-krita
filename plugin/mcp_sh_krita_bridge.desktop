@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=Krita/PythonPlugin
+X-KDE-Library=mcp_sh_krita_bridge
+X-Python-2-Compatible=false
+Name=mcp-sh-krita Bridge
+Comment=Lets mcp-sh-krita run Python in Krita over a loopback socket (127.0.0.1:9530)
