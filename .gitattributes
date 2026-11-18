@@ -1,0 +1,4 @@
+# Check out text files with LF on every platform. The plug-in files are go:embed-ed and
+# written into Krita verbatim, and Windows CI runners default to core.autocrlf=true, which
+# would otherwise embed CRLF copies.
+* text=auto eol=lf
