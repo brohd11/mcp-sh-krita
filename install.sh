@@ -1,5 +1,5 @@
 #!/bin/sh
-# Install mcp-sh-krita into ~/.local/bin.
+# Install mcp_sh_krita into ~/.local/bin.
 #
 #   curl -fsSL https://raw.githubusercontent.com/brohd11/mcp-sh-krita/main/install.sh | sh
 #
@@ -15,7 +15,7 @@ set -eu
 
 # ---- config ----
 REPO="brohd11/mcp-sh-krita"
-BINARY="mcp-sh-krita"
+BINARY="mcp_sh_krita"
 ARCHIVE_EXT="zip"
 SUPPORTED="darwin-arm64 darwin-amd64 linux-amd64 linux-arm64"
 

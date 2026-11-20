@@ -1,5 +1,5 @@
 // mcp-sh-krita: a sandboxed bash shell over Krita, served over MCP.
-// See `mcp-sh-krita --help` and the README.
+// See `mcp_sh_krita --help` and the README.
 package main
 
 import (
@@ -19,7 +19,7 @@ var version = "dev"
 
 func main() {
 	mcpsh.Main(mcpsh.Config{
-		Name:        "mcp-sh-krita",
+		Name:        "mcp_sh_krita",
 		App:         "krita",
 		Version:     version,
 		UpdateRepo:  "brohd11/mcp-sh-krita",

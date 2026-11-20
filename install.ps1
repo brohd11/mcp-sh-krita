@@ -1,4 +1,4 @@
-# Install mcp-sh-krita into %LOCALAPPDATA%\bin.
+# Install mcp_sh_krita into %LOCALAPPDATA%\bin.
 #
 #   irm https://raw.githubusercontent.com/brohd11/mcp-sh-krita/main/install.ps1 | iex
 #
@@ -14,7 +14,7 @@
 
 # ---- config ----
 $Repo       = 'brohd11/mcp-sh-krita'
-$Binary     = 'mcp-sh-krita'
+$Binary     = 'mcp_sh_krita'
 $ArchiveExt = 'zip'                                # zip | tar.gz
 $Supported  = 'windows-amd64'
 

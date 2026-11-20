@@ -16,7 +16,7 @@ import (
 )
 
 // The Krita Python plug-in, written into Krita's pykrita folder by
-// `mcp-sh-krita plugin install`, so the shell and the bridge it talks to always come from
+// `mcp_sh_krita plugin install`, so the shell and the bridge it talks to always come from
 // the same tag.
 var (
 	//go:embed plugin/mcp_sh_krita_bridge/__init__.py
@@ -42,7 +42,7 @@ func pluginCommand(version string) mcpsh.Subcommand {
 
 func runPlugin(version string, args []string, stdout, stderr io.Writer) int {
 	usage := func() int {
-		fmt.Fprintf(stderr, "usage: mcp-sh-krita %s\n", pluginUsage)
+		fmt.Fprintf(stderr, "usage: mcp_sh_krita %s\n", pluginUsage)
 		return 2
 	}
 	if len(args) == 0 {
@@ -123,7 +123,7 @@ var bridgeVersion = regexp.MustCompile(`(?m)^BRIDGE_VERSION = "([^"]*)"`)
 func installPlugin(dir, version string, stdout io.Writer) error {
 	dest := filepath.Join(dir, pluginName)
 	if installed, ok := readBridgeVersion(dest); ok && compareVersions(installed, version) > 0 {
-		return fmt.Errorf("installed plug-in %s is newer than this binary (%s); update mcp-sh-krita", installed, version)
+		return fmt.Errorf("installed plug-in %s is newer than this binary (%s); update mcp_sh_krita", installed, version)
 	}
 	if err := os.MkdirAll(dest, 0o755); err != nil {
 		return err
@@ -145,9 +145,9 @@ func pluginStatus(dir, version string, stdout io.Writer) {
 	fmt.Fprintf(stdout, "pykrita   %s\n", dir)
 	switch installed, ok := readBridgeVersion(filepath.Join(dir, pluginName)); {
 	case !ok:
-		fmt.Fprintln(stdout, "plug-in   not installed: mcp-sh-krita plugin install")
+		fmt.Fprintln(stdout, "plug-in   not installed: mcp_sh_krita plugin install")
 	case installed != version:
-		fmt.Fprintf(stdout, "plug-in   %s, binary is %s: mcp-sh-krita plugin install, then restart Krita\n", installed, version)
+		fmt.Fprintf(stdout, "plug-in   %s, binary is %s: mcp_sh_krita plugin install, then restart Krita\n", installed, version)
 	default:
 		fmt.Fprintf(stdout, "plug-in   %s (matches the binary)\n", installed)
 	}

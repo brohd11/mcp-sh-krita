@@ -36,7 +36,7 @@ except ImportError:  # Krita 6
     from PyQt6.QtWidgets import QApplication, QDialog, QMessageBox
     SHOW_EVENT = QEvent.Type.Show
 
-BRIDGE_VERSION = "dev"  # stamped by `mcp-sh-krita plugin install`
+BRIDGE_VERSION = "dev"  # stamped by `mcp_sh_krita plugin install`
 DEFAULT_PORT = 9530
 MAX_REQUEST = 64 << 20
 

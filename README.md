@@ -6,18 +6,18 @@ A sandboxed bash shell over the running Krita session, served over MCP. Built on
 plug-in that ships with mcp-sh-krita.
 
 ```sh
-mcp-sh-krita run 'layers | jq -c "select(.kind == \"vectorlayer\")" | layer set visible false'
-mcp-sh-krita run 'filter ls blur'
-mcp-sh-krita run 'filter apply "gaussian blur" horizRadius=8 vertRadius=8 --mask art.kra/Background'
-mcp-sh-krita run 'view art.kra'      # prints the path of a PNG of the document
+mcp_sh_krita run 'layers | jq -c "select(.kind == \"vectorlayer\")" | layer set visible false'
+mcp_sh_krita run 'filter ls blur'
+mcp_sh_krita run 'filter apply "gaussian blur" horizRadius=8 vertRadius=8 --mask art.kra/Background'
+mcp_sh_krita run 'view art.kra'      # prints the path of a PNG of the document
 ```
 
 ## Install
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/brohd11/mcp-sh-krita/main/install.sh | sh
-mcp-sh-krita setup            # ~/.mcp-sh/krita/ + prints the claude/codex mcp add commands
-mcp-sh-krita plugin install   # the bridge plug-in, into Krita's pykrita folder
+mcp_sh_krita setup            # ~/.mcp-sh/krita/ + prints the claude/codex mcp add commands
+mcp_sh_krita plugin install   # the bridge plug-in, into Krita's pykrita folder
 ```
 
 On Windows: `irm https://raw.githubusercontent.com/brohd11/mcp-sh-krita/main/install.ps1 | iex`.
@@ -25,7 +25,7 @@ On Windows: `irm https://raw.githubusercontent.com/brohd11/mcp-sh-krita/main/ins
 Start Krita once before `plugin install`, so its resource folder exists (or pass
 `--dir PYKRITA_DIR`). Then, in Krita, enable **mcp-sh-krita Bridge** in **Settings >
 Configure Krita > Python Plugin Manager** and restart Krita. The bridge starts with Krita
-from then on. `mcp-sh-krita commands` checks the connection, and `mcp-sh-krita plugin
+from then on. `mcp_sh_krita commands` checks the connection, and `mcp_sh_krita plugin
 status` checks whether the installed plug-in matches the binary. After an update, run
 `plugin install` again, then restart Krita.
 
@@ -81,7 +81,7 @@ It imports PyQt5 (Krita 5.x) and falls back to PyQt6 (Krita 6). It was tested on
 Keep your own Python commands in a folder of their own and add it:
 
 ```sh
-mcp-sh-krita commands add ~/code/krita-tools
+mcp_sh_krita commands add ~/code/krita-tools
 ```
 
 A `_lib.py` in that folder is appended to the built-in one, so your commands can use and
@@ -92,12 +92,12 @@ do. See the mcp-sh README for the script format and folder order.
 ## Development
 
 ```sh
-make           # host build -> build/<os>-<arch>/mcp-sh-krita
+make           # host build -> build/<os>-<arch>/mcp_sh_krita
 make test
 make package   # release archives for every platform
 ```
 
-After editing the plug-in, run `mcp-sh-krita plugin install` from a fresh build and
+After editing the plug-in, run `mcp_sh_krita plugin install` from a fresh build and
 restart Krita.
 
 The makefile body, installers, workflows and `cliff.toml` are rendered from
